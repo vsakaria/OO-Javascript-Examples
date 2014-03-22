@@ -8,7 +8,6 @@ function Actors(grid, points, actors){
 Actors.prototype.getActors = function() {
   for(i=0; i < this.actors.length; i++){
     this.actorsHash[this.actors[i]] = this.grid[this.points[i]];
-
   };
   return this.actorsHash; 
 };

@@ -78,15 +78,13 @@
       it('should find the nearest deliever point to the JEB', function() {
           var townActors = new Actors(this.grid, this.pointsArray, ['D', 'D2', 'JEB']);
 
-          spyOn(townActors, 'getActors').andReturn({D: [3,1], D2: [3,7], JEB: [8,1] });
+          spyOn(townActors, 'getActors').andReturn({D: [2,2], D2: [5,2], JEB: [8,7] });
           var stubbedActors = townActors.getActors();
           
-          var nearestDelivery = new FindNearestPoint(stubbedActors, 'JEB') 
-          // expect(nearestDelivery.find()).toEqual({D: 58});
-
-          console.log(this.grid[stubbedActors['D']]);
-          console.log(this.grid[stubbedActors['D2']]);  
-          console.log(this.grid[stubbedActors['JEB']]);
+          var nearestDelivery = new FindNearestPoint(stubbedActors, 'JEB'); 
+          nearestDelivery.getActorsDistance();
+           
+          expect(nearestDelivery.getClosestPoint()).toEqual({D2: 8});
       }); 
     });
   });

@@ -20,19 +20,19 @@ TakeAwayTown.prototype.createTakeAwayTown = function() {
   return grid;
 };
 
-function makeArray(gX, gY){
-  var grid = [];
-  var setX = 1;
-  var setY = 1;
+// function makeArray(gX, gY){
+//   var grid = [];
+//   var setX = 1;
+//   var setY = 1;
 
-  for(i = 0; i < gX*gY; i++)
-  {  
-    grid[i] = [setX,setY]; 
-    setY++;
+//   for(i = 0; i < gX*gY; i++)
+//   {  
+//     grid[i] = [setX,setY]; 
+//     setY++;
 
-    if(gY < setY) {
-      setX += 1; setY = 1;
-    }
-  }
-  return grid;
-} 
+//     if(gY < setY) {
+//       setX += 1; setY = 1;
+//     }
+//   }
+//   return grid;
+// } 
