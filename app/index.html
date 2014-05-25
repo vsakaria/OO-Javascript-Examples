@@ -1,0 +1,73 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+
+    <title>Delivery Man Robot</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
+    <script src="js/takeawaytown.js"></script>
+    <script src="js/points.js"></script>
+    <script src="js/actors.js"></script>
+    <script src="js/findnearestpoint.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/render.js"></script>
+     <link rel="stylesheet" href="stylesheets/main.css" media="screen, projection">
+  </head>
+
+  <body>
+    <div id='container'>
+      <p>Create a town!</p>
+      <p>First choose the size of the town e.g 8 by 8</p>
+      <input id="gridX" type="text" name="gridX"> by
+      <input id="gridY" type="text" name="gridY">
+      <p>Now choose the number of actors e.g 2 delivery point + 1 JEB = 3</p>
+      <input id="numOfActors" type="text" name="numOfActors">
+      <button id="button" type="button">Create Town</button>
+
+      <div id="grid-container">
+      </div>
+
+      <div id="abstract">
+        See the following files.
+        <ul>
+          <li>Spec/test.js</li>
+          <li>render.js lines 21 to 34 for the setup of the objects</li>
+        </ul>
+        <p>
+          The aim of this project was to abstract the creation of the Delivery Man System into decoupled, classes all responsible for their own behaviour.
+          <br/><br/>
+          The classes are;
+          <ul>
+            <li>TakeAwayTown, which in hindsight should be called Grid</li>
+            <li>Points, the creations of random unique points between 1 and the size of the grid.</li>
+            <li>Actors being any object placed on the grid and a reference to its position on the grid,</li><li> A class to calculate the nearest actor/actors to a nominated actor in this case the JEB.</li>
+          </ul>
+          <br/><br/>
+          Each class exists independently from each other.
+          <ul>
+          <li> So you can use the Grid (TakeAwayTown) class to create any grid.</li><li> This is also true for the points, which can be used to create any points within a given range.</li> <li>The actors are created using a grid, points, and the name of the actors. But any data can be used to create it.</li>
+          </ul>
+          <br/>
+           This keeps with the sprit of reusability. And is much better for change management since each class can be changed without effecting other class.
+          <br/><br/>
+          The whole system was created by Pivotal Labs Jasmine BDD which is based on Ruby's Rspec. The test suite ensure the code is working correctly and gives developer the confidence to alter code because the suite reports any error. This is evident in the project when I realised I need to get a hash of actors and their co-ordinated rather then their random points. I was able to alter my code in 5 mins knowing everything worked fine.
+          As Uncle Bob say "Testing makes software soft again!"
+          <br/><br/>
+          In addition BDD made my ask very important questions regarding the design of the classes it also forced me to write clean, concise code!
+        </p>
+      </div>
+      <div id='spec'>
+        <a href='SpecRunner.html' target='_blank'>See my Jasmine Specs!</a>
+      </div>
+      <div id='spec'>
+        <a href='files/source.zip'>Download the source code.</a>
+      </div>
+    </div>
+  </body>
+</html>
